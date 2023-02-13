@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Due Diligence Infographic</title>
+    <script src="../scripts/iframeResizer.contentWindow.min.js"></script>
+    <style>
+        :root {
+            --primary: #0081CC;
+            --secondary: #F58557;
+            --tertiary: #F6B344;
+            --quaternary: #F16C80;
+            --quinary: #99CC33;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family:'Lato Extended';
+            font-style:normal;
+            font-weight:400;
+            src:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Regular-bd03a2cc27.woff2) format("woff2");
+            font-display:auto;
+        }
+        @font-face {
+            font-family:'Lato Extended';
+            font-style:normal;
+            font-weight:700;
+            src:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Bold-cccb897485.woff2) format("woff2");
+            font-display:auto;
+        }
+        body {
+            font-family: "Lato Extended", Lato, sans-serif;
+        }
+        #svg-holder {
+            position: relative;
+        }
+        #dd-svg {
+            width: 100%;
+            height: auto;
+            max-width: 550px;
+            display: block;
+            margin: 0 auto;
+        }
+        .step-text {
+            background: #eee;
+            border: 2px solid black;
+            border-width: 0 2px 0 2px;
+            border-radius: .5em;
+            padding: .5em;
+            display: none;
+            opacity: 0;
+        }
+        .step-text p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        .step-text ul {
+            margin: .5rem 0 0 0;
+        }
+        
+        #button-holder {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            width: max-content;
+            gap: 1em;
+        }
+        .nav-button {
+            font-size: 24pt;
+            color: white;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.75em;
+            height: 1.75em;
+            border-radius: 5em;
+            padding: 0;
+            cursor: pointer;
+            border: 1px solid black;
+            filter: drop-shadow(1px 1px 2px black);
+        }
+        .nav-button:hover, .nav-button:focus-visible {
+            opacity: .7;
+        }
+        .nav-button:active {
+            transform: translate(2px, 2px);
+            filter: none;
+        }
+        .step-text.current {
+            display: block;
+            opacity: 0;
+            animation: fade-in .5s forwards;
+        }
+        .step-graphic {
+            transition: opacity .2s;
+        }
+        .step-graphic > * {
+            transition: fill .2s;
+        }
+        .odd {
+            fill: var(--primary);
+        }
+        .even {
+            fill: var(--secondary);
+        }
+        .step-graphic:not(.current) {
+            opacity: .5;
+        }
+        .current ~ .step-graphic {
+            opacity: 1;
+        }
+        .current ~ .step-graphic > * {
+            fill: lightgray;
+        }
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="svg-holder">
+        <svg id="dd-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1851.86 1851.86">
+            <defs>
+                <style>
+                    .cls-1 {
+                        stroke: #000;
+                        stroke-miterlimit: 10;
+                        stroke-width: 4px;
+                    }
+
+                    .label-text {
+                        font-size: 36pt;
+                        font-weight:bold;
+                        fill: white;
+                    }
+                    #title-text {
+                        font-size: 120px;
+                    }
+                </style>
+            </defs>
+            <g class="step-graphic current" id="step1">
+                <path class="cls-1 odd"
+                    d="M114.56,504.05c34.97-73.14,134.51-255.82,349.74-378.44C616.27,39.02,759.84,20.04,839.67,15.56l161.11,141.46c-31.01,56.84-62.02,113.69-93.04,170.53-59.77,6.5-157.41,24.74-263.14,82.23-117.03,63.64-189.47,145.74-227.02,195.24-34.92-55.66-69.85-111.32-104.77-166.97-66.09,22-132.18,44.01-198.26,66.01Z" />
+                <text x="380" y="240" class="label-text">Analyze Purpose of the<tspan x="380" dy="75">Project, Acquisition,</tspan><tspan x="380" dy="75">or Merger</tspan></text>
+            </g>
+            <g class="step-graphic" id="step2">
+                <path class="cls-1 even"
+                    d="M885.6,12.32c80.82-6.29,288.81-11.42,502.61,113.66,150.97,88.32,239.2,203.17,282.99,270.06l-41.95,210.26c-64.73,1.56-129.47,3.13-194.2,4.69-35.52-48.52-100.12-123.95-202.78-186.77-113.63-69.53-220.95-91.21-282.59-98.99,30.74-58.07,61.48-116.15,92.22-174.22-52.1-46.23-104.2-92.46-156.3-138.7Z" />
+                <text x="1150" y="280" class="label-text">Analyze Business<tspan x="1150" dy="75">Financials</tspan></text>
+            </g>
+            <g class="step-graphic" id="step3">
+                <path class="cls-1 odd"
+                    d="M1696.97,434.2c45.85,66.85,154.3,244.4,152.87,492.1-1,174.9-56.35,308.74-92.39,380.11l-203.06,68.8c-33.72-55.28-67.44-110.56-101.17-165.84,24.26-55.02,57.28-148.69,60.35-269,3.4-133.17-31.48-236.95-55.57-294.22,65.66-2.42,131.33-4.83,196.99-7.25,13.99-68.24,27.98-136.47,41.97-204.71Z" />
+                <text x="1540" y="875" class="label-text">Thorough<tspan x="1540" dy="75">Inspection of</tspan><tspan x="1540" dy="75">Documents</tspan></text>
+            </g>
+            <g class="step-graphic" id="step4">
+                <path class="cls-1 even"
+                    d="M1737.3,1347.81c-34.97,73.14-134.51,255.82-349.74,378.44-151.97,86.58-295.55,105.57-375.38,110.05l-161.11-141.46c31.01-56.84,62.02-113.69,93.04-170.53,59.77-6.5,157.41-24.74,263.14-82.23,117.03-63.64,189.47-145.74,227.02-195.24,34.92,55.66,69.85,111.32,104.77,166.97,66.09-22,132.18-44.01,198.26-66.01Z" />
+                <text x="1095" y="1575" class="label-text">Analyze Business<tspan x="1095" dy="75">Plan and Model</tspan></text>
+            </g>
+            <g class="step-graphic" id="step5">
+                <path class="cls-1 odd"
+                    d="M966.26,1839.53c-80.82,6.29-288.81,11.42-502.61-113.66-150.97-88.32-239.2-203.17-282.99-270.06l41.95-210.26c64.73-1.56,129.47-3.13,194.2-4.69,35.52,48.52,100.12,123.95,202.78,186.77,113.63,69.53,220.95,91.21,282.59,98.99-30.74,58.07-61.48,116.15-92.22,174.22,52.1,46.23,104.2,92.46,156.3,138.7Z" />
+                <text x="350" y="1570" class="label-text">Risk Management</text>
+            </g>
+            <g class="step-graphic" id="step6">
+                <path class="cls-1 even"
+                    d="M154.89,1417.66C109.03,1350.81,.59,1173.25,2.01,925.55c1-174.9,56.35-308.74,92.39-380.11l203.06-68.8c33.72,55.28,67.44,110.56,101.17,165.84-24.26,55.02-57.28,148.69-60.35,269-3.4,133.17,31.48,236.95,55.57,294.22-65.66,2.42-131.33,4.83-196.99,7.25-13.99,68.24-27.98,136.47-41.97,204.71Z" />
+                <text x="75" y="800" class="label-text">Final<tspan x="75" dy="75">Offering</tspan><tspan x="75" dy="75">Formation</tspan></text>
+            </g>
+            <text id="title-text" x="560" y="900">Due Diligence<tspan x="730" dy="150">Process</tspan></text>
+        </svg>
+        <div id="button-holder">
+            <button type="button" class="nav-button" id="prev-btn">&lt;</button>
+            <button type="button" class="nav-button" id="next-btn">&gt;</button>
+        </div>
+    </div>
+    <div id="text-container" aria-live="polite">
+        <div class="step-text current">
+            <p>This initial step helps companies outline corporate goals, identify the resources required to perform at a competitive level, and reach alignment (if a merger or acquisition) with their overarching mission and strategy. This step involves introspective questions about what companies seek to gain from the investigation.</p>
+        </div>
+
+        <div class="step-text">
+            <p>This step is a complete audit of financial records, and part of the objective is to ensure all documents are authentic. It also helps determine a company's financial performance and stability, verify overall company health, and detect any red flags. Items reviewed at this stage include:</p>
+            <ul>
+                <li>Revenue, profit, and growth trends</li>
+                <li>Short-term and long-term debts</li>
+                <li>Stock history and other options</li>
+                <li>Tax forms and related documents</li>
+                <li>Balance sheets and income statements</li>
+                <li>Inventory documents</li>
+                <li>Valuation multiples and ratios in comparison to market competitors</li>
+            </ul>
+        </div>
+        <div class="step-text">
+            <p>This step starts a conversation between buyer/investor and seller. The buyer may ask for various other documents to review, conduct interviews or surveys with the seller, and visit the headquarters and/or physical spaces of the business. Organization and receptiveness from the seller's end are crucial to advancing the process.</p>
+            <br>
+            <p>Subsequently, the buyer examines the data and information collected to confirm proper business practices and legal and environmental compliance. This is the most important step of the due diligence process, as the buyer gains a more clear understanding of the company as a whole and can better estimate long-term value.</p>
+        </div>
+        <div class="step-text">
+            <p>Here, the buyer and/or investor looks closely at the target company's business plans and model. This is done to calculate whether or not the plans are viable and to assess how well the company's model would integrate with theirs.</p>
+            <br>
+            <p>If parties are aligned, a full business plan of the merger, acquisition, or investment should be drafted.</p>
+        </div>
+        <div class="step-text">
+            <p>This step entails looking at the target company holistically and predicting risks that may be associated with the transaction. Items to consider at this stage include:</p>
+            <ul>
+                <li>Operational innovation</li>
+                <li>Competitors</li>
+                <li>Emerging markets</li>
+                <li>Material needs</li>
+                <li>Inflation</li>
+                <li>Accessibility trends</li>
+                <li>Environmental factors</li>
+            </ul>
+        </div>
+
+        <div class="step-text">
+            <p>Following the review of all information and documents gathered, individuals and teams collaborate to share and evaluate their findings. Then, analysts use the data collected to perform valuation techniques and methods. This process validates the final dollar amount the buyer and/or investor is willing to offer during negotiation.</p>
+        </div>
+    </div>
+    <script>
+        const stepGraphics = document.querySelectorAll('.step-graphic');
+        const stepTexts = document.querySelectorAll('.step-text');
+        document.getElementById('prev-btn').addEventListener('click', () => navigate(-1));
+        document.getElementById('next-btn').addEventListener('click', () => navigate(1));
+        let index = 0;
+
+        function navigate(inc) {
+            index += inc;
+            if (index >= stepTexts.length) {
+                index = 0;
+            }
+            else if (index <= -1) {
+                index = stepTexts.length - 1;
+            }
+            document.querySelectorAll('.current').forEach(x => x.classList.remove('current'));
+            stepGraphics[index].classList.add('current');
+            stepTexts[index].classList.add('current');
+        }
+
+    </script>
+</body>
+</html>

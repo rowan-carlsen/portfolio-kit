@@ -21,15 +21,18 @@
 <slot />
 
 <style>
+    :global(html) {
+        scroll-behavior: smooth;
+    }
     .nav-bar {
         display: flex;
         justify-content: center;
         gap: 1em;
     }
     header {
-        font-size: 6vw;
+        font-size: 4vw;
         grid-column: span 2;
-        height: 15vw;
+        height: 10vw;
         position: relative;
         text-align: center;
         user-select: none;
@@ -45,10 +48,10 @@
     }
     #header-dev {
         right: 55%;
-        mix-blend-mode: difference;
+        color: var(--color-opposite);
     }
     #header-edu {
         left: 55%;
-        mix-blend-mode: difference;
+        color: var(--color-primary);
     }
 </style>

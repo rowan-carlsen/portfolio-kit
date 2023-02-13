@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotating 3D Shapes</title>
+<script src="../scripts/iframeResizer.contentWindow.min.js"></script>
+<style>
+      :root {
+        --primary: #0a304e;
+        --secondary: #626262;
+        --tertiary: #c1cd24;
+    }
+    * {
+	    -webkit-box-sizing: border-box;
+	            box-sizing: border-box;
+    }
+    #container {
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        margin: 0 auto;
+        margin-top: 4em;
+    }
+    body {
+        overflow: hidden;
+    }
+    .glassBox {
+        -webkit-transform-style: preserve-3d;
+	    transform-style: preserve-3d;
+        width: 400px;
+        height: 400px;
+        perspective: 5000px;
+        -webkit-perspective: 5000px;
+        -webkit-transform-origin: center;
+            -ms-transform-origin: center;
+                transform-origin: center;
+	    -webkit-transform: rotateY(30deg) rotateX(20deg);
+	            transform: rotateY(30deg) rotateX(20deg);
+        position: relative;
+        -webkit-transition: -webkit-transform .5s;
+        transition: -webkit-transform .5s;
+        -o-transition: transform .5s;
+        transition: transform .5s;
+        transition: transform .5s, -webkit-transform .5s;
+        display: none;
+    }
+    .glassBox.current {
+        display: block;
+    }
+    .face {
+        background-image: -webkit-gradient(linear, left bottom, right top, from(#0080DB), to(#99D5FF));
+        background-image: -o-linear-gradient(bottom left, #0080DB, #99D5FF);
+        background-image: linear-gradient(to top right, #0080DB, #99D5FF);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border: 1px solid black;
+    }
+    #hBot, #hFront, #hBack {
+        width: 400px;
+    }
+    #hBot, #hLeft, #hTop1, #hRight1, #hRight2, #hFront, #hBack {
+        height: 300px;
+    }
+    #hBack {
+        bottom: 300px;
+    }
+    #hFront, #hBack {
+        -webkit-clip-path: polygon(0 0, 100px 0, 100px 200px, 400px 200px, 400px 300px, 0 300px);
+                clip-path: polygon(0 0, 100px 0, 100px 200px, 400px 200px, 400px 300px, 0 300px);
+        -webkit-transform-origin: bottom;
+            -ms-transform-origin: bottom;
+                transform-origin: bottom;
+        -webkit-transform: rotateX(-90deg);
+                transform: rotateX(-90deg);
+    }
+    #hLeft {
+        width: 300px;
+        right: 100px;
+        -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+                transform-origin: left;
+        -webkit-transform: rotateY(-90deg);
+                transform: rotateY(-90deg);
+    }
+    #hTop1 {
+        width: 100px;
+        right: 300px;
+        -webkit-transform: translateZ(300px);
+                transform: translateZ(300px);
+    }
+    #hTop2, #hTop3 {
+        width: 300px;
+        height: 181px;
+    }
+    #hTop2 {
+        -webkit-transform-origin: bottom;
+            -ms-transform-origin: bottom;
+                transform-origin: bottom;
+        -webkit-transform: translateZ(100px) rotateX(-33.5deg);
+                transform: translateZ(100px) rotateX(-33.5deg);
+    }
+    #hTop3 {
+        bottom: unset;
+        top: 100px;
+        -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+                transform-origin: top;
+        -webkit-transform: translateZ(100px) rotateX(33.5deg);
+                transform: translateZ(100px) rotateX(33.5deg);
+    }
+    #hRight1 {
+        width: 200px;
+        right: 100px;
+        -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+                transform-origin: left;
+        -webkit-transform: rotateY(-90deg) translateX(100px);
+                transform: rotateY(-90deg) translateX(100px);;
+    }
+    #hRight2 {
+        width: 200px;
+        -webkit-clip-path: polygon(0 150px, 100px 0, 200px 0, 200px 300px, 100px 300px);
+                clip-path: polygon(0 150px, 100px 0, 200px 0, 200px 300px, 100px 300px);
+        -webkit-transform-origin: right;
+            -ms-transform-origin: right;
+                transform-origin: right;
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+
+    #sBot {
+        width: 350px;
+        height: 300px;
+    }
+    #sFront1 {
+        width: 175px;
+        height: 150px;
+        right: 175px;
+        -webkit-transform-origin: bottom;
+            -ms-transform-origin: bottom;
+                transform-origin: bottom;
+        -webkit-transform: rotateX(-90deg);
+                transform: rotateX(-90deg);
+    }
+    #sFront2 {
+        width: 350px;
+        height: 425px;
+        -webkit-transform-origin: bottom;
+            -ms-transform-origin: bottom;
+                transform-origin: bottom;
+        -webkit-transform: rotateX(-45.1deg);
+                transform: rotateX(-45.1deg);
+    }
+    #sRight1 {
+        width: 301px;
+        height: 300px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 100%);
+        -webkit-transform-origin: right;
+            -ms-transform-origin: right;
+                transform-origin: right;
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+    #sRight2 {
+        width: 150px;
+        height: 175px;
+        right: 175px;
+        -webkit-transform-origin: right;
+            -ms-transform-origin: right;
+                transform-origin: right;
+        -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+    }
+    #sLeft {
+        height: 300px;
+        width: 301px;
+        right: 49px;
+        -webkit-clip-path: polygon(100% 0, 151px 50%, 151px 100%, 0 100%, 0 0);
+                clip-path: polygon(100% 0, 151px 50%, 151px 100%, 0 100%, 0 0);
+        -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+                transform-origin: left;
+        -webkit-transform: rotateY(-90deg);
+                transform: rotateY(-90deg);
+    }
+    #sBack {
+        width: 350px;
+        height: 301px;
+        bottom: -1px;
+        -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+                transform-origin: top;
+        -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+    }
+    #sTop {
+        width: 175px;
+        height: 150px;
+        right: 175px;
+        -webkit-transform: translateZ(150px);
+                transform: translateZ(150px);
+    }
+
+    #buttonPanel {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: end;
+            -ms-flex-align: end;
+                align-items: flex-end;
+        position: relative;
+        z-index: 200;
+    }
+    button {
+        text-align: center; 
+        font-size: 2em;
+        font-weight: bold;
+        cursor: pointer;
+        width: 2em;
+        height: 2em;
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+    #swap {
+        font-size: 1.5em;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        padding: .5em;
+        margin-left: .5em;
+        -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+            align-self: center;
+    }
+    h3 {
+        font-family: sans-serif;
+        font-size: 1.5rem;
+        text-align: center;
+        background: var(--primary);
+        color: white;
+        width: max-content;
+        margin: 0;
+        padding: .5em;
+        margin: 0 auto;
+    }
+    h3.swapped {
+        animation: pulse .2s alternate 2;
+    }
+    @keyframes pulse {
+        to {
+            transform: scale(1.1);
+        }
+    }
+</style>
+</head>
+<body>
+    <h3 id="heading">Shape 1</h3>
+
+    <div id="buttonPanel">
+        <button id="left">&larr;</button>
+        <div>
+            <button id="up">&uarr;</button>
+            <button id="down">&darr;</button>
+        </div>
+        <button id="right">&rarr;</button>
+        <button id="swap">Switch Shapes</button>
+    </div>
+    <div id="container">
+            <div class="glassBox current" id="house" data-title="Shape 1">
+                <div class="face" id="hBot"></div>
+                <div class="face" id="hFront"></div>
+                <div class="face" id="hRight1"></div>
+                <div class="face" id="hRight2"></div>
+                <div class="face" id="hLeft"></div>
+                <div class="face" id="hTop1"></div>
+                <div class="face" id="hTop2"></div>
+                <div class="face" id="hTop3"></div>
+                <div class="face" id="hBack"></div>
+            </div>
+            <div class="glassBox" id="slope" data-title="Shape 2">
+                <div class="face" id="sBot"></div>
+                <div class="face" id="sFront1"></div>
+                <div class="face" id="sFront2"></div>
+                <div class="face" id="sRight1"></div>
+                <div class="face" id="sRight2"></div>
+                <div class="face" id="sLeft"></div>
+                <div class="face" id="sBack"></div>
+                <div class="face" id="sTop"></div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    const upButton = document.getElementById("up");
+    const rightButton = document.getElementById("right");
+    let container = document.querySelector(".current");
+    const panel = document.getElementById("buttonPanel");
+    const swap = document.getElementById('swap');
+    const boxes = document.querySelectorAll('.glassBox');
+    const heading = document.getElementById("heading");
+    const directions = {
+        'up': [10,0],
+        'down': [-10,0],
+        'left': [0,-10],
+        'right': [0,10]
+    };
+    panel.addEventListener("click", handler);
+    let rotateX = 20;
+    let rotateY = 30;
+    function handler(e) {
+        let targ = e.target;
+        if (targ.tagName != "BUTTON") {
+            return;
+        }
+        if (targ.id == "swap") {
+            swapShapes();
+            return;
+        }
+        let direction = directions[targ.id]
+        rotateX += direction[0];
+        rotateY += direction[1];
+        rotate();
+    }
+    function rotate() {
+        container.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+    }
+    function swapShapes() {
+        boxes.forEach(x => {
+            x.removeAttribute("style");
+            x.classList.toggle("current");
+        });
+        container = document.querySelector(".current");
+        heading.innerHTML = container.dataset.title;
+        heading.classList.add("swapped");
+        setTimeout(() => heading.classList.remove("swapped"), 400);
+        rotateX = 20;
+        rotateY = 30;
+    }
+</script>
+</body>
+</html>

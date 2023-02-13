@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" as="image" href="./jump/standing.png">
+<link rel="preload" as="image" href="./jump/jumping.png">
+<link rel="preload" as="image" href="./jump/step1.png">
+<link rel="preload" as="image" href="./jump/step2.png">
+<link rel="preload" as="image" href="./jump/trees.png">
+<link rel="preload" as="image" href="./jump/hills.png">
+<link rel="preload" as="image" href="./jump/mountains.png">
+<link rel="preload" as="image" href="./jump/ground-sky.png">
+<title>Collision Demo</title>
+<script src="../scripts/iframeResizer.contentWindow.min.js"></script>
+<style>
+    :root {
+        --primary: #FFD100;
+        --secondary: #00205B;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    #game-area {
+        width: 855px;
+        height: 422px;
+        border: 2px solid black;
+        /* background: black radial-gradient(circle, white, 85%, transparent); */
+        background-image: url("./jump/trees.png"), url("./jump/hills.png"), url("./jump/mountains.png"), url("./jump/ground-sky.png");
+        background-repeat: repeat-x;
+        background-size: 855px;
+        background-position: 0 277px, 0 242px, 0 101px, 0 0;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    #avatar {
+        position: absolute;
+        bottom: 10%;
+        left: 45%;
+        width: 60px;
+        height: 80px;
+        background-image: url("./jump/standing.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        z-index: 10;
+        animation: walk 1s infinite;
+        border: 2px solid transparent;
+        box-sizing: content-box;
+    }
+    #avatar.jumping {
+        background-image: url("./jump/jumping.png");
+        animation: none;
+    }
+    #avatar.hitbox {
+        border: 2px solid black;
+    }
+    #obstacle {
+        position: absolute;
+        bottom: 10%;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        background-color: silver;
+        background-image: linear-gradient(335deg, #b00 30%, transparent 30%),
+        linear-gradient(155deg, #d00 30%, transparent 30%),
+        linear-gradient(335deg, #b00 30%, transparent 30%),
+        linear-gradient(155deg, #d00 30%, transparent 30%);
+        background-size: 29px 29px;
+        background-position: 5px 10px, 7px 27px, 19px 25px, 22px 12px;
+    }
+
+    #collision-msg {
+        position: absolute;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #d00;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        background: #fff;
+        padding: .5em;
+        border-radius: .5em;
+    }
+    #collision-msg.shown {
+        display: block;
+    }
+    button {
+        font-family: "Lato Extended", sans-serif;
+        cursor: pointer;
+        color: white;
+        font-size: 1.4em;
+        padding: 14px 32px;
+        margin: .5em 0;
+    }
+    #reset {
+        background: #B33A3A;
+    }
+    button:focus-visible, button:hover {
+        opacity: .8;
+    }
+    button:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+    .unstarted::before {
+        content: "Click to Start";
+        font-size: 1.4rem;
+        font-weight: bold;
+        font-family: sans-serif;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #ffffff99;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        animation: blink 1s infinite alternate;
+    }
+    @keyframes blink {
+        25% {
+            color: black;
+        }
+        100% {
+            color: transparent;
+        }
+    }
+    @keyframes walk {
+        25% {
+            background-image: url("./jump/step1.png");
+        }
+        50% {
+            background-image: url("./jump/standing.png")
+        }
+        75% {
+            background-image: url("./jump/step2.png");
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="game-area" class="unstarted">
+        <div id="avatar">
+
+        </div>
+        <div id="obstacle">
+
+        </div>
+        
+        <div id="collision-msg">Collision!</div>
+    </div>
+    <button type="reset" id="reset">Restart</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+    const jumper = document.getElementById('avatar');
+    const obst = document.getElementById('obstacle');
+    const gameArea = document.getElementById('game-area');
+    const collMsg = document.getElementById('collision-msg');
+    document.getElementById('reset').addEventListener('click', () => window.location.reload());
+    let running = false;
+    let duration = ".6";
+    let easing = "power1";
+    let startMove;
+    let jumpAnim;
+    window.addEventListener('load', setup);
+    
+
+    function setup() {
+        gameArea.addEventListener('click', startGame);
+        startMove = gsap.timeline({paused: true});
+        startMove.to(obst, {
+            x: -(obst.parentNode.offsetWidth),
+            ease: 'none',
+            duration: 3.5,
+            repeat: -1,
+            onUpdate: checkCollision 
+        }, 0);
+        startMove.to(gameArea, {
+            backgroundPosition: "-2565px 277px, -1710px 242px, -855px 101px, 0 0",
+            ease: 'none',
+            duration: 15,
+            repeat: -1
+        }, 0);
+    }
+    
+    function startGame() {
+        gameArea.removeEventListener('click', startGame);
+        gameArea.classList.remove('unstarted');
+        gameArea.addEventListener('click', jump);
+        startMove.resume();
+    }
+
+    function jump() {
+        if (running) {
+            return;
+        }
+        jumpAnim = gsap.to(jumper, {
+            duration: duration,
+            y: -120,
+            ease: easing,
+            repeat: 1,
+            yoyo: "true",
+            onStart: () => {
+            running = true;
+            jumper.classList.add('jumping');
+            },
+            onComplete: () => {
+            running = false;
+            jumper.classList.remove('jumping');
+            }
+        });
+    }
+
+    function checkCollision() {
+        const avRect = avatar.getBoundingClientRect();
+        const objRect = obst.getBoundingClientRect();
+        if (avRect.bottom > objRect.top && avRect.right > objRect.left && avRect.left < objRect.right) {
+            console.log('collision');
+            startMove.pause();
+            if (jumpAnim) {
+                jumpAnim.pause();
+            }
+            avatar.style.animation = "none";
+            avatar.classList.add('hitbox');
+            gameArea.removeEventListener('click', jump);
+            collMsg.classList.add('shown');
+        }
+    }
+
+
+</script>
+</body>
+</html>
