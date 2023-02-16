@@ -1,4 +1,5 @@
 <script>
+    import '../iframeResizer.min.js';
     const samples = [
         {
             name: 'Sorting Activity',
@@ -46,7 +47,6 @@
             desc: `tracing desc`,
         },
     ];
-    import './iframeResizer.min.js';
     /*
         WFU Invest - !inflation demo!
         CBS Lux - !Channel strategy!, e-commerce

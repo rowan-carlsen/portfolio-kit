@@ -1,8 +1,5 @@
 <script>
     import About from './About.svelte';
-    import Contact from './Contact.svelte';
-    import Resume from './Resume.svelte';
-    import Portfolio from './Portfolio.svelte';
 </script>
 
 <svelte:head>
@@ -11,10 +8,10 @@
 
 <main>
     <About />
-    <Portfolio />
-    <Resume />
-    <Contact />
 </main>
 
 <style>
+    main {
+        padding: 0 0.5em;
+    }
 </style>
