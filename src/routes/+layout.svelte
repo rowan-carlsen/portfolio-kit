@@ -7,8 +7,11 @@
     }
 </script>
 
+<svelte:head>
+    <title>Rowan Carlsen: Educational Developer and Tech Liaison</title>
+</svelte:head>
 <header
-    style="background-image: linear-gradient(to right, var(--color-primary) {headerPct}%, var(--color-opposite) {headerPct}%);"
+    style="background-image: linear-gradient(to bottom, #ffffff55, 10%, transparent, 90%, #00000055), linear-gradient(to right, var(--color-primary) {headerPct}%, var(--color-opposite) {headerPct}%);"
     on:mousemove={slideHeader}>
     <div>WEB</div>
     <span id="header-edu">EDU</span>
@@ -19,7 +22,9 @@
     <a href="/portfolio" class="nav-link">Portfolio</a>
     <a href="/resume" class="nav-link">Resume</a>
 </nav>
-<slot />
+<main>
+    <slot />
+</main>
 <footer>
     <Contact />
 </footer>
@@ -36,9 +41,9 @@
         top: 0;
     }
     header {
-        font-size: 4vw;
+        font-size: 2.5vw;
         grid-column: span 2;
-        height: 10vw;
+        height: 6vw;
         position: relative;
         text-align: center;
         user-select: none;
@@ -46,7 +51,7 @@
     header div {
         mix-blend-mode: difference;
         color: orange;
-        z-index: 100;
+        z-index: 10;
         position: relative;
     }
     header span {
@@ -62,16 +67,25 @@
         height: 100%;
         position: absolute;
         top: 0;
-        animation: fly-off 3s 0.5s forwards;
+        animation: fly-off 4s 0.5s cubic-bezier(0.4, 0.5, 0.4, 1) forwards;
+        background-image: linear-gradient(
+            to bottom,
+            #ffffff55,
+            10%,
+            transparent,
+            90%,
+            #00000055
+        );
+        z-index: 8;
     }
     header::before {
         left: 100%;
-        background: var(--color-opposite);
+        background-color: var(--color-opposite);
         transform: translateX(-150%);
     }
     header::after {
         right: 100%;
-        background: var(--color-primary);
+        background-color: var(--color-primary);
         transform: translateX(150%);
     }
     #header-dev {
@@ -81,6 +95,12 @@
     #header-edu {
         left: 55%;
         color: var(--color-primary);
+    }
+    footer {
+        padding: 0 0.5em;
+    }
+    main {
+        padding: 0 0.5em;
     }
     @keyframes fly-off {
         to {

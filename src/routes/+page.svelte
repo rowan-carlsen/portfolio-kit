@@ -6,12 +6,7 @@
     <title>Rowan Carlsen: Educational Developer and Tech Liaison</title>
 </svelte:head>
 
-<main>
-    <About />
-</main>
+<About />
 
 <style>
-    main {
-        padding: 0 0.5em;
-    }
 </style>

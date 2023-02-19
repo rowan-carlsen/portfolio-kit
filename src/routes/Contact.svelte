@@ -2,8 +2,10 @@
 
 <ul>
     <li>
-        Email: <a href="mailto:rowan.carlsen@gmail.com"
-            >rowan.carlsen@gmail.com</a>
+        <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://fosstodon.org/@rowan_c">Mastodon</a>
     </li>
     <li>
         <a
