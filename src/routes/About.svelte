@@ -13,7 +13,7 @@
 <style>
     p {
         margin: 0.5em 10%;
-        font-size: 16pt;
+        font-size: 14pt;
         animation: fly-in 0.75s 0.2s forwards;
         opacity: 0;
         transform: translateY(50px);
