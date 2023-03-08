@@ -1,6 +1,11 @@
 <script>
     import Contact from './Contact.svelte';
-
+    import { page } from '$app/stores';
+    const navLinks = [
+        { name: 'Home', href: '/' },
+        { name: 'Portfolio', href: '/portfolio' },
+        { name: 'Resume', href: '/resume' },
+    ];
     let headerPct = 50;
     function slideHeader(e) {
         headerPct = (e.clientX / this.offsetWidth) * 100;
@@ -21,9 +26,10 @@
     <div class="header-half" id="header-dev"><span>DEV</span></div>
 </header>
 <nav class="nav-bar">
-    <a href="/" style="justify-self: end;" class="nav-link">Home</a>
-    <a href="/portfolio" class="nav-link">Portfolio</a>
-    <a href="/resume" class="nav-link">Resume</a>
+    {#each navLinks as { name, href }}
+        <a {href} class="nav-link" class:current={$page.route.id === href}
+            >{name}</a>
+    {/each}
 </nav>
 <main>
     <slot />
@@ -41,12 +47,13 @@
         grid-template-columns: 1fr auto 1fr;
         position: sticky;
         top: 0;
-        padding: 1em 0;
+        padding: 0.5em 0;
         gap: 4em;
         border: 4px solid var(--color-dark);
         border-width: 4px 0;
         background-color: var(--color-light);
         overflow: hidden;
+        font-size: 1.2em;
     }
     .nav-bar a {
         width: max-content;
@@ -54,6 +61,10 @@
         display: block;
         background-color: var(--color-light);
         padding: 0.25em 0.5em;
+        text-decoration: none;
+    }
+    .nav-bar a:first-of-type {
+        justify-self: end;
     }
     .nav-bar a::after {
         content: '';
@@ -76,7 +87,7 @@
             transform: scale(125%, 200%);
         }
     }
-    .nav-bar a:is(:hover, :focus-visible)::after {
+    .nav-bar a:is(:hover, :focus-visible, .current)::after {
         display: block;
     }
     header {

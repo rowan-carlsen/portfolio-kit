@@ -7,6 +7,3 @@
 </svelte:head>
 
 <About />
-
-<style>
-</style>
