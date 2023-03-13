@@ -3,7 +3,7 @@
     const samples = [
         {
             name: 'Sorting Activity',
-            path: './sample-sorting.html',
+            path: './methods-sort',
             desc: `This is a sorting activity`,
         },
         {
@@ -17,16 +17,6 @@
             desc: `collision desc`,
         },
         {
-            name: 'Investment Returns',
-            path: './sample-periodic.html',
-            desc: `investment desc`,
-        },
-        {
-            name: 'Tools of the Fed',
-            path: './sample-fed-tools.html',
-            desc: `fed desc`,
-        },
-        {
             name: 'Rotating 3D Objects',
             path: './sample-3d-objects.html',
             desc: `3d desc`,
@@ -37,21 +27,19 @@
             desc: `due desc`,
         },
         {
-            name: 'Interactive Scenario',
-            path: './sample-wrigley.html',
-            desc: `scen desc`,
-        },
-        {
             name: 'Tracing Images',
             path: './sample-tracing.html',
             desc: `tracing desc`,
         },
     ];
     /*
-        WFU Invest - !inflation demo!
-        CBS Lux - !Channel strategy!, e-commerce
-        CBS Sports - what-is-valuation, world sports map
-        GT IR: zoom map
+fundr
+world map-zoom
+ortho-matching
+asset-pie-chart (gt invest)
+https://cdn.precollegeprograms.org/gt-investing/sectors-portfolio/index.html
+porter-forces-general (wfu biz refresh)
+
     */
     let item = 'null';
 </script>
