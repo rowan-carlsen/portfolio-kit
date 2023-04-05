@@ -1,5 +1,5 @@
 <script>
-    import About from './About.svelte';
+    import About from '$lib/About.svelte';
 </script>
 
 <svelte:head>
