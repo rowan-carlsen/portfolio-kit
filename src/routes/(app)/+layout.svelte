@@ -98,6 +98,7 @@
         text-align: center;
         user-select: none;
         font-family: 'Cousine', monospace;
+        overflow: hidden;
     }
     #web {
         mix-blend-mode: difference;
@@ -172,6 +173,8 @@
     }
     footer {
         padding: 0 0.5em;
+        position: absolute;
+        bottom: 0;
     }
     main {
         padding: 0 0.5em;
@@ -180,5 +183,10 @@
         to {
             transform: none;
         }
+    }
+    :global(body) {
+        min-height: 100vh;
+        position: relative;
+        padding-bottom: 6.5em;
     }
 </style>
