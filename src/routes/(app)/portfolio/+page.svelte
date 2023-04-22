@@ -37,15 +37,17 @@
             path: './sample-tracing.html',
             desc: `Students in a 2D -> 3D design course have to hone their skills at breaking down complex shapes into many simpler ones. Here they can do so with a variety of fun and challenging options.`,
         },
+        {
+            name: 'Editable Bubble Map',
+            path: './bubble-map',
+            desc: `This SVG can be edited by the student to add and place 'bubbles', creating a visual representation of their different language contexts. THe image can then be saved to revisit later!`,
+        },
+        {
+            name: 'Interactive World Map Infographic',
+            path: './world-map-interactive.html',
+            desc: `Students can zoom in on and examine a few selected countries in this interactive, adding a sense of scale and context to the 'vital stats' presented.`,
+        },
     ];
-    /*
-world map-zoom
-ortho-matching
-asset-pie-chart (gt invest)
-https://cdn.precollegeprograms.org/gt-investing/sectors-portfolio/index.html
-porter-forces-general (wfu biz refresh)
-editable bubble map svg
-    */
     let item = 'null';
 </script>
 

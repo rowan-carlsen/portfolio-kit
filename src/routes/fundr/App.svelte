@@ -195,29 +195,6 @@
 </div>
 
 <style>
-    .btn {
-        background: var(--primary);
-        color: white;
-        cursor: pointer;
-        font-family: 'Lato Extended', sans-serif;
-        font-size: clamp(1rem, 2vw, 1.4rem);
-        margin: 0.5em 0.25em 0.25em 0.25em;
-        padding: 0.5em 1em;
-        transition: transform 0.1s;
-        width: max-content;
-    }
-
-    #reset {
-        background: #b33a3a;
-    }
-    .btn:focus-visible,
-    .btn:hover {
-        opacity: 0.8;
-    }
-    .btn:active {
-        transform: translate(2px, 2px);
-    }
-
     .app {
         height: 100%;
         width: 100%;
