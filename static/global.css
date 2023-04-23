@@ -36,3 +36,6 @@ body {
 .btn:active {
     transform: translate(2px, 2px);
 }
+h2 {
+    font-weight: normal;
+}
