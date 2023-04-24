@@ -7,8 +7,8 @@
     <img src="profile-pic.jpg" alt="My face!" width="248" height="283" />
     <p>
         I create engaging and interactive educational content online, combining
-        web design expertise with 10+ years of experience as a teacher and a
-        manager for teachers. My goal is to integrate the learning design
+        web design expertise with 10+ years of experience as a teacher and an
+        educational manager. My goal is to integrate the learning design
         sensibilities of in-person teaching with the expansive possibilities
         afforded by modern web technology.
     </p>

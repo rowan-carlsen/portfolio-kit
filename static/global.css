@@ -5,11 +5,11 @@
 }
 :root {
     --color-primary: #0B21EA;
-    --color-secondary: #0868A8;
-    --color-analogous: #cfd3fc;
-    --color-opposite: #f7e758;
-    --color-dark: #010526;
-    --color-light: #fff7b2;
+    --color-analogous: #0BB6EA;
+    --color-analogous2: #890BEA;
+    --color-opposite: #EAD40B;
+    --color-dark: #040C53;
+    --color-light: #A5ADFB;
 }
 body {
     margin: 0;
