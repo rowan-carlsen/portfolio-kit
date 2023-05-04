@@ -97,11 +97,11 @@
     #resume-btn .person {
         stroke-opacity: 0;
         fill-opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(100px);
         transition: stroke-opacity 0.5s, fill-opacity 0.5s, transform 0.5s;
     }
     #resume-btn:is(:hover, :focus-visible) .person {
-        transform: none;
+        transform: translateY(0px);
         stroke-opacity: 1;
         fill-opacity: 1;
     }

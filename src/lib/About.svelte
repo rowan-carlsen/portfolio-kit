@@ -17,27 +17,35 @@
 <style>
     div {
         display: flex;
-        justify-content: space-around;
+        margin: 0.5em 0;
+        gap: 5%;
         align-items: flex-start;
         animation: fly-in 1s 0.25s forwards;
         opacity: 0;
         transform: translateY(50px);
-        margin: 0.5em 0;
     }
     img {
         max-width: 248px;
         width: 10%;
         height: auto;
+        clip-path: ellipse(100% 100% at center);
+        animation: lens 1s 1.25s forwards;
     }
     p {
-        width: 80%;
+        width: 85%;
         margin: 0;
         font-size: 14pt;
+        max-width: 30em;
     }
     @keyframes fly-in {
         to {
             opacity: 1;
             transform: none;
+        }
+    }
+    @keyframes lens {
+        to {
+            clip-path: ellipse(50% 50% at center);
         }
     }
 </style>

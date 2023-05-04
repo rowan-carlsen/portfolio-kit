@@ -81,17 +81,18 @@
     }
 
     footer {
-        padding: 0 0.5em;
         position: absolute;
+        left: 0;
         bottom: 0;
     }
     main {
-        padding: 0 0.5em;
+        padding: 0 1em;
     }
-
     :global(body) {
         min-height: 100vh;
         position: relative;
         padding-bottom: 6.5em;
+        background-color: var(--color-light);
+        background-image: linear-gradient(to bottom, #ffffff99, transparent);
     }
 </style>
