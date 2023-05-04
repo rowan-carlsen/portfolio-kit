@@ -3,7 +3,7 @@
     let open = false,
         timer;
     function countdown() {
-        timer = setTimeout(() => (open = false), 3000);
+        timer = setTimeout(() => (open = false), 2500);
     }
 </script>
 
@@ -11,27 +11,31 @@
     <button
         type="button"
         id="resume-btn"
-        on:click={() => (open = true)}
+        on:click={() => {
+            open = true;
+            countdown();
+        }}
         class:fade={open}>
         Resume
         <svg
             id="resume"
-            viewBox="0 0 846.66 846.66"
-            style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd"
-            xml:space="preserve"
+            viewBox="0 0 500 500"
             xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <style>
-                    .fil0 {
-                        fill: #fff;
-                        fill-rule: nonzero;
-                    }
-                </style>
-            </defs>
             <path
-                class="fil0"
-                d="M539.75 794.68c27.15 0 27.15 41.29 0 41.29H42.28c-11.4 0-20.64-9.25-20.64-20.65V193.63c0-5.7 2.31-10.87 6.04-14.6l162.3-162.29c4.03-4.03 9.31-6.05 14.59-6.05h466.89c11.4 0 20.65 9.25 20.65 20.65V392.7c0 27.16-41.29 27.16-41.29 0V51.98h-437.7L62.93 202.18v592.5h476.82zM188.54 612.7c-27.16 0-27.16-41.29 0-41.29h306.67c27.16 0 27.16 41.29 0 41.29H188.54zm0-274.68c-27.16 0-27.16-41.29 0-41.29h306.67c27.16 0 27.16 41.29 0 41.29H188.54zm0 91.56c-27.16 0-27.16-41.29 0-41.29h306.67c27.16 0 27.16 41.29 0 41.29H188.54zm0 91.56c-27.16 0-27.16-41.29 0-41.29h306.67c27.16 0 27.16 41.29 0 41.29H188.54zm0-274.68c-27.16 0-27.16-41.29 0-41.29h306.67c27.16 0 27.16 41.29 0 41.29H188.54zm496.57 238.25c49.84 0 90.24 40.4 90.24 90.24 0 18.1-5.33 34.95-14.5 49.07 37.57 24.93 61.47 66.08 64.13 111.2 1.59 27.06-39.55 29.47-41.13 2.42-2.11-35.69-22.61-67.48-54.13-84.24-13.16 7.5-28.38 11.78-44.61 11.78-17.56 0-33.95-5.01-47.81-13.69-33.44 16.12-55.6 49.04-57.79 86.15-1.59 27.05-42.72 24.64-41.13-2.42 2.79-47.18 28.75-89.88 69.08-114.28-7.99-13.47-12.58-29.19-12.58-45.99 0-49.83 40.4-90.24 90.23-90.24zm0 41.29c-27.03 0-48.94 21.92-48.94 48.95s21.91 48.94 48.94 48.94c27.03 0 48.95-21.91 48.95-48.94 0-27.03-21.91-48.95-48.95-48.95z"
-                id="Layer_x0020_1" />
+                d="M320 481.5 h-295m0 0v-367.5m 0 0 l 95.5 -95.5m 0 0 h 276 m 0 0 v 214" />
+            <path
+                class="corner"
+                style="stroke-dasharray: 400 1000; transition: stroke-dashoffset .5s;"
+                d="M 396.5 232.5 v244 A 5 5, 0,0,1,391.5 481.5 h -76.5" />
+            <path d="M 111 133.5 h 181.5" />
+            <path d="M 111 187.5 h 181.5" />
+            <path d="M 111 241.5 h 181.5" />
+            <path d="M 111 295.5 h 181.5" />
+            <path d="M 111 349.5 h 181.5" />
+            <path
+                class="person"
+                d="M 330 435 A 72.63 72.63, 0, 0, 1, 475 435" />
+            <circle class="person" r="41" cx="404.5" cy="339.5" fill="black" />
         </svg>
     </button>
     {#if open}
@@ -63,8 +67,17 @@
         position: relative;
     }
     #resume {
-        width: 2.5em;
+        width: 3em;
         height: auto;
+    }
+    #resume path,
+    #resume circle {
+        stroke: white;
+        stroke-width: 24px;
+        stroke-linecap: round;
+    }
+    #resume path {
+        fill: none;
     }
     #resume-btn {
         border: none;
@@ -78,9 +91,23 @@
         align-items: center;
         gap: 0.5em;
     }
+    #resume-btn:is(:hover, :focus-visible) .corner {
+        stroke-dashoffset: 400;
+    }
+    #resume-btn .person {
+        stroke-opacity: 0;
+        fill-opacity: 0;
+        transform: translateY(30px);
+        transition: stroke-opacity 0.5s, fill-opacity 0.5s, transform 0.5s;
+    }
+    #resume-btn:is(:hover, :focus-visible) .person {
+        transform: none;
+        stroke-opacity: 1;
+        fill-opacity: 1;
+    }
     .fade {
         opacity: 0;
-        transition: none;
+        visibility: hidden;
     }
     #download-bar {
         position: absolute;
