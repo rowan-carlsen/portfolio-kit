@@ -30,7 +30,7 @@
         background-color: var(--color-analogous2);
         padding: 1em 3em;
         color: #ced3fd;
-        border-radius: 0 0.5em 0 0;
+        border-radius: 0.5em 0 0 0;
     }
     a {
         color: inherit;

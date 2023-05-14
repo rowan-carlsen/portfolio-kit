@@ -24,8 +24,8 @@
         ];
     let circles = [],
         mySVG,
-        vAxisTop = '[Axis Label]',
-        vAxisBot = '[Axis Label]';
+        vAxisTop = '[Custom Label]',
+        vAxisBot = '[Custom Label]';
     function addCircle() {
         if (transforms.length === 0) {
             return;
@@ -121,6 +121,7 @@
         width: 100%;
         max-width: 700px;
         display: flex;
+        margin: 0 auto;
     }
     svg {
         width: 100%;

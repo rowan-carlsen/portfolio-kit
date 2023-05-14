@@ -15,9 +15,16 @@
 </div>
 
 <style>
+    h2,
+    div {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        width: 50rem;
+    }
     div {
         display: flex;
-        margin: 0.5em 0;
+        margin: 0.5em auto;
         gap: 5%;
         align-items: flex-start;
         animation: fly-in 1s 0.25s forwards;
@@ -26,7 +33,7 @@
     }
     img {
         max-width: 248px;
-        width: 10%;
+        width: 10vw;
         height: auto;
         clip-path: ellipse(100% 100% at center);
         animation: lens 1s 1.25s forwards;

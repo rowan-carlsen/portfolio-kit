@@ -23,6 +23,7 @@
 <main>
     <Bubblemap />
     <button type="button" class="btn" on:click={downloadSVG}>Download</button>
+    <br />
     <!-- svelte-ignore a11y-invalid-attribute -->
     <a
         id="copy-link"
@@ -39,9 +40,14 @@
         --tertiary: #00b388;
         --quaternary: #84344e;
         --quinary: #64ccc9;
+        margin: 0 auto;
     }
     #copy-link {
         visibility: hidden;
         position: absolute;
+    }
+    button {
+        display: block;
+        margin: 1em auto 0em auto;
     }
 </style>

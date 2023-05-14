@@ -74,6 +74,12 @@
 {/if}
 
 <style>
+    h2 {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        width: 50rem;
+    }
     iframe {
         margin: 1em 0;
         background: #ffffffaa;
@@ -82,5 +88,8 @@
     select {
         margin: 0 auto;
         display: block;
+        font-size: 1rem;
+        padding: 0.5em;
+        background-color: var(--color-analogous);
     }
 </style>
