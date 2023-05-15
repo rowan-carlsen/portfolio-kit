@@ -20,7 +20,10 @@
         margin-left: auto;
         margin-right: auto;
         max-width: 100%;
-        width: 50rem;
+        width: 60rem;
+    }
+    h2 {
+        margin-top: 0;
     }
     div {
         display: flex;
@@ -42,7 +45,6 @@
         width: 85%;
         margin: 0;
         font-size: 14pt;
-        max-width: 30em;
     }
     @keyframes fly-in {
         to {

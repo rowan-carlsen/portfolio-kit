@@ -86,13 +86,17 @@
         bottom: 0;
     }
     main {
-        padding: 0 1em;
+        padding: 1em 1em;
     }
     :global(body) {
         min-height: 100vh;
         position: relative;
-        padding-bottom: 6.5em;
-        background-color: var(--color-light);
-        background-image: linear-gradient(to bottom, #ffffff99, transparent);
+        /* background-color: var(--color-light); */
+        /* background-image: linear-gradient(to bottom, #ffffff99, transparent); */
+        background-repeat: repeat-y;
+        background-image: linear-gradient(#a5adfbf5, #a5adfbf5),
+            url('./images/web-dev-bg3.jpeg');
+        background-position: 0% 0%, 0% 0%;
+        background-size: 100% 100%, 100%;
     }
 </style>
