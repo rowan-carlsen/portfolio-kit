@@ -122,6 +122,7 @@
         max-width: 700px;
         display: flex;
         margin: 0 auto;
+        background: white;
     }
     svg {
         width: 100%;

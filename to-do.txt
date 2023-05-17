@@ -1,0 +1,4 @@
+1. EITHER: Move portfolio to main page and SPA it (with a # link at top)
+	OR: Make a little cute game or interactive to go on the main page to fill space
+
+2. Make portfolio selection/loading beautiful

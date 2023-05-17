@@ -5,46 +5,55 @@
         {
             name: 'Fundr Mock App',
             path: './fundr',
+            preview: './images/fundr-preview.png',
             desc: `This playful activity lets students explore the process of finding a Venture Capital investor through the analogy of a dating app.`,
         },
         {
             name: 'Sorting Activity',
             path: './methods-sort',
+            preview: './images/sorting-preview.png',
             desc: `This is a sorting quiz, utilizing Svelte's 'crossfade' transition to smoothly move items to the appropriate category.`,
         },
         {
             name: 'Python Interpreter',
             path: './sample-python.html',
+            preview: './images/python-preview.png',
             desc: `Made for an introductory Computer Science course, this widget uses a library to translate Python code into Javascript, execute it, and output results in a window.`,
         },
         {
             name: 'Collision Detection',
             path: './sample-collision.html',
+            preview: './images/collision-preview.png',
             desc: `From a Video Game Development course, this minimal demo shows how simple object collision in games works.`,
         },
         {
             name: 'Rotating 3D Objects',
             path: './sample-3d-objects.html',
+            preview: './images/3d-shapes-preview.png',
             desc: `3D using pure CSS. The aim of this widget is to allow students to see how the profile of a 3-dimensional shape can change depending on perspective.`,
         },
         {
             name: 'Due Diligence Infographic',
             path: './sample-diligence.html',
+            preview: './images/diligence-preview.png',
             desc: `This infographic walks students through the due diligence process for corporate acquisitions and mergers.`,
         },
         {
             name: 'Tracing Images',
             path: './sample-tracing.html',
+            preview: './images/tracing-preview.png',
             desc: `Students in a 2D -> 3D design course have to hone their skills at breaking down complex shapes into many simpler ones. Here they can do so with a variety of fun and challenging options.`,
         },
         {
             name: 'Editable Bubble Map',
             path: './bubble-map',
+            preview: './images/bubble-map-preview.png',
             desc: `This SVG can be edited by the student to add and place 'bubbles', creating a visual representation of their different language contexts. THe image can then be saved to revisit later!`,
         },
         {
             name: 'Interactive World Map Infographic',
             path: './world-map-interactive.html',
+            preview: './images/world-map-preview.png',
             desc: `Students can zoom in on and examine a few selected countries in this interactive, adding a sense of scale and context to the 'vital stats' presented.`,
         },
     ];
@@ -58,6 +67,13 @@
         <option value={i}>{sample.name}</option>
     {/each}
 </select>
+<div id="preview-gallery">
+    {#each samples as sample}
+        <div class="preview-thumbnail">
+            <img src={sample.preview} alt="{sample.name} preview" />
+        </div>
+    {/each}
+</div>
 {#if item !== 'null'}
     {#key item}
         <p in:fade out:fade={{ duration: 0 }}>{samples[item].desc}</p>
@@ -82,7 +98,6 @@
     }
     iframe {
         margin: 1em 0;
-        background: #ffffffaa;
         transition: height 0.5s;
     }
     select {
@@ -91,5 +106,27 @@
         font-size: 1rem;
         padding: 0.5em;
         background-color: var(--color-analogous);
+    }
+    #preview-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .preview-thumbnail {
+        width: 250px;
+        height: 250px;
+        padding: 10px;
+        box-shadow: 5px 5px 5px var(--color-primary);
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
     }
 </style>

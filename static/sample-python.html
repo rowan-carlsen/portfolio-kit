@@ -1,92 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./python/skulpt.min.js" type="text/javascript"></script> 
-<script src="./python/skulpt-stdlib.js" type="text/javascript"></script>
-<script src="../scripts/iframeResizer.contentWindow.min.js"></script>
-<title>Python Interpreter</title>
-<style>
-    @font-face {
-        font-family:'Lato Extended';
-        font-style:normal;
-        font-weight:400;
-        src:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Regular-bd03a2cc27.woff2) format("woff2");
-        font-display:auto;
-    }
-    @font-face {
-        font-family:'Lato Extended';
-        font-style:normal;
-        font-weight:700;
-        src:url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Bold-cccb897485.woff2) format("woff2");
-        font-display:auto;
-    }
-    * {
-        box-sizing: border-box;
-    }
-    body {
-        font-family: "Lato Extended", Lato, sans-serif;
-        font-size: 12pt;
-    }
-    #container {
-        font-family: monospace;
-        display: flex;
-        width: 100%;
-        min-width: 650px;
-        max-width: 1000px;
-        gap: 1em;
-    }
-    textarea {
-        font-size: 12pt;
-        width: 50%;
-    }
-    #output {
-        border: 1px solid black;
-        min-height: 5em;
-        width: 50%;
-        background: #111;
-        color: #ddd;
-        padding: 1em;
-        margin: 0;
-    }
-    cite {
-        font-size: .9rem;
-    }
-    button {
-        font-family: "Lato Extended", sans-serif;
-        cursor: pointer;
-        color: white;
-        font-size: 1.4em;
-        padding: 12px 24px;
-        margin: .5em .25em .25em .25em;
-    }
-    button {
-        background:  #228b22;
-    }
-    button:focus-visible, button:hover {
-        opacity: .8;
-    }
-    button:active {
-        transform: translate(2px, 2px);
-    }
-    #verify:disabled, #verify[disabled] {
-        background: gray;
-        cursor: initial;
-        position: static;
-        opacity: .5;
-    }
-    #feedback {
-        color: red;
-    }
-</style>
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./python/skulpt.min.js" type="text/javascript"></script>
+    <script src="./python/skulpt-stdlib.js" type="text/javascript"></script>
+    <script src="../scripts/iframeResizer.contentWindow.min.js"></script>
+    <title>Python Interpreter</title>
+    <style>
+        @font-face {
+            font-family: 'Lato Extended';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Regular-bd03a2cc27.woff2) format("woff2");
+            font-display: auto;
+        }
 
-<body> 
+        @font-face {
+            font-family: 'Lato Extended';
+            font-style: normal;
+            font-weight: 700;
+            src: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Bold-cccb897485.woff2) format("woff2");
+            font-display: auto;
+        }
 
-<h3>Enter your code into the interpreter on the left - output appears on the right when you run it.</h3>
-<div id="container">
-<textarea id="yourcode" cols="40" rows="10">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Lato Extended", Lato, sans-serif;
+            font-size: 12pt;
+        }
+
+        #container {
+            font-family: monospace;
+            display: flex;
+            width: 100%;
+            min-width: 650px;
+            max-width: 1000px;
+            gap: 1em;
+        }
+
+        textarea {
+            font-size: 12pt;
+            width: 50%;
+        }
+
+        #output {
+            border: 1px solid black;
+            min-height: 5em;
+            width: 50%;
+            background: #111;
+            color: #ddd;
+            padding: 1em;
+            margin: 0;
+        }
+
+        cite {
+            font-size: .9rem;
+        }
+
+        button {
+            font-family: "Lato Extended", sans-serif;
+            cursor: pointer;
+            color: white;
+            font-size: 1.4em;
+            padding: 12px 24px;
+            margin: .5em .25em .25em .25em;
+        }
+
+        button {
+            background: #228b22;
+        }
+
+        button:focus-visible,
+        button:hover {
+            opacity: .8;
+        }
+
+        button:active {
+            transform: translate(2px, 2px);
+        }
+
+        #verify:disabled,
+        #verify[disabled] {
+            background: gray;
+            cursor: initial;
+            position: static;
+            opacity: .5;
+        }
+
+        #feedback {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Enter your code into the interpreter on the left - output appears on the right when you run it.</h3>
+    <div id="container">
+        <textarea id="yourcode" cols="40" rows="10">
 def factorial(number):
   answer = number
   for i in range(1, number):
@@ -99,52 +114,53 @@ print("Please enter the second number: ")
 y = int(input("Second Number:"))
 print("The factorial of the first number is " + str(factorial(x)))
 print("The factorial of the second number is " + str(factorial(y)))
-</textarea><br /> 
-<pre id="output" ></pre> 
-</div>
-<button type="button" onclick="runit()">Run</button>
-<span id="feedback"></span>
-<br>
-<cite><a href="https://github.com/skulpt/skulpt" target="_blank">Skulpt Python Interpreter</a>, used under <a href="https://github.com/skulpt/skulpt/blob/master/LICENSE" target="_blank">MIT License</a></cite>
+</textarea><br />
+        <pre id="output"></pre>
+    </div>
+    <button type="button" onclick="runit()">Run</button>
+    <span id="feedback"></span>
+    <br>
+    <cite><a href="https://github.com/skulpt/skulpt" target="_blank">Skulpt Python Interpreter</a>, used under <a
+            href="https://github.com/skulpt/skulpt/blob/master/LICENSE" target="_blank">MIT License</a></cite>
 
-<script> 
-    const mypre = document.getElementById("output"); 
-    const feedback = document.getElementById('feedback');
-    // output functions are configurable.  This one just appends some text
-    // to a pre element.
-    function outf(text) { 
-        mypre.innerHTML = mypre.innerHTML + text; 
-    } 
-    function builtinRead(x) {
-        if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+    <script>
+        const mypre = document.getElementById("output");
+        const feedback = document.getElementById('feedback');
+        // output functions are configurable.  This one just appends some text
+        // to a pre element.
+        function outf(text) {
+            mypre.innerHTML = mypre.innerHTML + text;
+        }
+        function builtinRead(x) {
+            if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
                 throw "File not found: '" + x + "'";
-        return Sk.builtinFiles["files"][x];
-    }
-    
-    // Here's everything you need to run a python program in skulpt
-    // grab the code from your textarea
-    // get a reference to your pre element for output
-    // configure the output function
-    // call Sk.importMainWithBody()
-    function runit() { 
-       let prog = document.getElementById("yourcode").value; 
-       mypre.innerHTML = ''; 
-       Sk.pre = "output";
-       Sk.configure({output:outf, read:builtinRead, inputfunTakesPrompt: true});
-       (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
-       var myPromise = Sk.misceval.asyncToPromise(function() {
-           return Sk.importMainWithBody("<stdin>", false, prog, true);
-       });
-       myPromise.then(function(mod) {
-           console.log('success');
-       },
-           function(err) {
-           console.log(err.toString());
-           feedback.innerHTML = "There is an issue with your Python code: " + err.toString();
-       });
-    } 
-</script> 
+            return Sk.builtinFiles["files"][x];
+        }
 
-</body> 
+        // Here's everything you need to run a python program in skulpt
+        // grab the code from your textarea
+        // get a reference to your pre element for output
+        // configure the output function
+        // call Sk.importMainWithBody()
+        function runit() {
+            let prog = document.getElementById("yourcode").value;
+            mypre.innerHTML = '';
+            Sk.pre = "output";
+            Sk.configure({ output: outf, read: builtinRead, inputfunTakesPrompt: true });
+            (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+            var myPromise = Sk.misceval.asyncToPromise(function () {
+                return Sk.importMainWithBody("<stdin>", false, prog, true);
+            });
+            myPromise.then(function (mod) {
+                console.log('success');
+            },
+                function (err) {
+                    console.log(err.toString());
+                    feedback.innerHTML = "There is an issue with your Python code: " + err.toString();
+                });
+        } 
+    </script>
 
-</html> 
+</body>
+
+</html>

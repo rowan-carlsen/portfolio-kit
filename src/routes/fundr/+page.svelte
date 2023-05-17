@@ -130,5 +130,6 @@
     }
     #container {
         font-family: 'Lato Extended', Lato, sans-serif;
+        background: transparent;
     }
 </style>

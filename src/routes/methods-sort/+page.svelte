@@ -131,6 +131,10 @@
 </main>
 
 <style>
+    main {
+        background: white;
+        padding: 5px;
+    }
     :global(:root) {
         --primary: #ffd100;
         --secondary: #00205b;

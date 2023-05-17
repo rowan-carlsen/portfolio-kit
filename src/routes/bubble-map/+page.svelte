@@ -40,7 +40,7 @@
         --tertiary: #00b388;
         --quaternary: #84344e;
         --quinary: #64ccc9;
-        margin: 0 auto;
+        margin: 1em auto 0 auto;
     }
     #copy-link {
         visibility: hidden;
