@@ -50,6 +50,13 @@
         max-width: 100%;
         margin: 0 auto;
         display: flex;
+        --primary: #115740;
+        --secondary: #b9975b;
+        --tertiary: #00b388;
+        --quaternary: #84344e;
+        --quinary: #64ccc9;
+        font-family: 'Lato Extended', Lato, sans-serif;
+        background: transparent;
     }
     #screen {
         align-items: center;
@@ -104,13 +111,6 @@
             opacity: 0;
         }
     }
-    #container {
-        --primary: #115740;
-        --secondary: #b9975b;
-        --tertiary: #00b388;
-        --quaternary: #84344e;
-        --quinary: #64ccc9;
-    }
 
     @font-face {
         font-family: 'Lato Extended';
@@ -127,9 +127,5 @@
         src: url(https://du11hjcvx0uqb.cloudfront.net/br/dist/fonts/lato/extended/Lato-Bold-cccb897485.woff2)
             format('woff2');
         font-display: auto;
-    }
-    #container {
-        font-family: 'Lato Extended', Lato, sans-serif;
-        background: transparent;
     }
 </style>

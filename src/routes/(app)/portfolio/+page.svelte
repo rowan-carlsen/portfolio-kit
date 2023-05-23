@@ -116,12 +116,17 @@
     .preview-thumbnail {
         width: 250px;
         height: 250px;
-        padding: 10px;
+        padding: 5px;
         box-shadow: 5px 5px 5px var(--color-primary);
         background: white;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .preview-thumbnail :is(:hover, :focus-visible) {
     }
     img {
         width: auto;
