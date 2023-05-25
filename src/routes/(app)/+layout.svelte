@@ -95,7 +95,14 @@
         /* background-color: var(--color-light); */
         /* background-image: linear-gradient(to bottom, #ffffff99, transparent); */
         background-repeat: repeat-y;
-        background-image: linear-gradient(#a5adfbf5, #a5adfbf5),
+        background-image: linear-gradient(
+                to right,
+                #a5adfbc5,
+                10%,
+                #a5adfbf5 50%,
+                90%,
+                #a6adfbc5
+            ),
             url('./images/web-dev-bg3.jpeg');
         background-position: 0% 0%, 0% 0%;
         background-size: 100% 100%, 100%;

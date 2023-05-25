@@ -14,12 +14,7 @@
             preview: './images/sorting-preview.png',
             desc: `This is a sorting quiz, utilizing Svelte's 'crossfade' transition to smoothly move items to the appropriate category.`,
         },
-        {
-            name: 'Python Interpreter',
-            path: './sample-python.html',
-            preview: './images/python-preview.png',
-            desc: `Made for an introductory Computer Science course, this widget uses a library to translate Python code into Javascript, execute it, and output results in a window.`,
-        },
+
         {
             name: 'Collision Detection',
             path: './sample-collision.html',
@@ -58,6 +53,7 @@
         },
     ];
     let item = 'null';
+    function displaySample(e) {}
 </script>
 
 <h2 id="portfolio">Portfolio</h2>
@@ -68,15 +64,24 @@
     {/each}
 </select>
 <div id="preview-gallery">
-    {#each samples as sample}
+    {#each samples as sample, i}
         <div class="preview-thumbnail">
-            <img src={sample.preview} alt="{sample.name} preview" />
+            <a
+                href="#sample-frame-{i}"
+                on:click={(e) => {
+                    e.preventDefault();
+                    item = i;
+                }}>
+                <img src={sample.preview} alt="{sample.name} preview" />
+            </a>
         </div>
     {/each}
 </div>
 {#if item !== 'null'}
     {#key item}
-        <p in:fade out:fade={{ duration: 0 }}>{samples[item].desc}</p>
+        <p in:fade out:fade={{ duration: 0 }}>
+            {samples[item].desc}
+        </p>
     {/key}
     <!-- svelte-ignore missing-declaration -->
     <iframe
@@ -118,20 +123,28 @@
         height: 250px;
         padding: 5px;
         box-shadow: 5px 5px 5px var(--color-primary);
+        border: 2px solid black;
         background: white;
         display: flex;
-        justify-content: center;
-        align-items: center;
+
         border-radius: 5px;
         cursor: pointer;
         transition: transform 0.2s;
     }
-    .preview-thumbnail :is(:hover, :focus-visible) {
+    .preview-thumbnail:is(:hover, :focus-visible) {
+        transform: scale(1.05);
     }
     img {
         width: auto;
         height: auto;
         max-width: 100%;
         max-height: 100%;
+    }
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
