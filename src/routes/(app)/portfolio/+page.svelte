@@ -126,7 +126,7 @@
         max-width: 1250px;
     }
     .preview-thumbnail {
-        max-height: 250px;
+        height: 250px;
         padding: 5px;
         box-shadow: 5px 5px 5px var(--color-primary);
         border: 2px solid black;
