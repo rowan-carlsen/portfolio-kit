@@ -53,9 +53,9 @@
         },
     ];
     let item = 'null';
-    function displaySample(e) {}
 </script>
 
+<svelte:window on:load={() => console.log('loaded window')} />
 <h2 id="portfolio">Portfolio</h2>
 <select bind:value={item}>
     <option value="null">Choose an item:</option>
@@ -67,6 +67,7 @@
     <div id="preview-gallery">
         {#each samples as sample, i}
             <a
+                in:fade
                 class="preview-thumbnail"
                 href="#sample-frame-{i}"
                 data-name={sample.name}
