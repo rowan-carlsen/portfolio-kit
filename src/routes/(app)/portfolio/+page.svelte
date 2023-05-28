@@ -127,6 +127,7 @@
     }
     .preview-thumbnail {
         height: 250px;
+        width: 100%;
         padding: 5px;
         box-shadow: 5px 5px 5px var(--color-primary);
         border: 2px solid black;
