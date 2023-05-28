@@ -152,4 +152,7 @@
     text {
         user-select: none;
     }
+    .btn {
+        background: var(--primary);
+    }
 </style>

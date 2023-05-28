@@ -50,4 +50,7 @@
         display: block;
         margin: 1em auto 0em auto;
     }
+    .btn {
+        background: var(--primary);
+    }
 </style>

@@ -16,7 +16,7 @@ body {
     font-family: "Ubuntu", sans-serif;
 }
 .btn {
-    background: var(--primary);
+    background-color: var(--color-primary);
     color: white;
     cursor: pointer;
     font-family: 'Lato Extended', sans-serif;
@@ -31,7 +31,7 @@ body {
 }
 .btn:focus-visible,
 .btn:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 .btn:active {
     transform: translate(2px, 2px);
