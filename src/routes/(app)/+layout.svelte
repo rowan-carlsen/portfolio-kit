@@ -103,7 +103,7 @@
                 90%,
                 #a6adfbc5
             ),
-            url('./images/web-dev-bg3.jpeg');
+            url('/images/web-dev-bg3.jpeg');
         background-position: 0% 0%, 0% 0%;
         background-size: 100% 100%, 100%;
     }
