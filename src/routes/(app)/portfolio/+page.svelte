@@ -141,6 +141,7 @@
         cursor: pointer;
         transition: transform 0.2s;
         transform: scale(0.75);
+        z-index: 1;
     }
     .preview-thumbnail::before {
         content: '';
