@@ -2,7 +2,7 @@
     <h2 id="contact">Contact</h2>
 
     <ul>
-        <li style="--customIcon: url('./logos/github-mark.svg')">
+        <li style="--customIcon: url({'./logos/github-mark.svg'})">
             <a
                 href="https://github.com/rowan-carlsen"
                 target="_blank"
