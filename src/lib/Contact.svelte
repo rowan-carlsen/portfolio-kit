@@ -9,7 +9,7 @@
                 rel="noreferrer">GitHub</a>
         </li>
 
-        <li style="--customIcon: url('./logos/In-White-72.png')">
+        <li style="--customIcon: url('./logos/li-logo.svg')">
             <a
                 href="https://www.linkedin.com/in/rowan-carlsen-464a35195"
                 target="_blank"
