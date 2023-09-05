@@ -9,10 +9,10 @@
             desc: `This playful activity lets students explore the process of finding a Venture Capital investor through the analogy of a dating app.`,
         },
         {
-            name: 'Sorting Activity',
-            path: './methods-sort',
-            preview: './images/sorting-preview.png',
-            desc: `This is a sorting quiz, utilizing Svelte's 'crossfade' transition to smoothly move items to the appropriate category.`,
+            name: 'Nursing Simulation',
+            path: './nurse-sim',
+            preview: './images/nurse-sim-preview.png',
+            desc: `In lieue of a basic multiple choice quiz, students take on the role of a hospital nurse to determine which vital signs are abnormal for 3 patients.`,
         },
 
         {
@@ -22,10 +22,10 @@
             desc: `From a Video Game Development course, this minimal demo shows how simple object collision in games works.`,
         },
         {
-            name: 'Rotating 3D Objects',
-            path: './sample-3d-objects.html',
-            preview: './images/3d-shapes-preview.png',
-            desc: `3D using pure CSS. The aim of this widget is to allow students to see how the profile of a 3-dimensional shape can change depending on perspective.`,
+            name: 'Spaceflight Dynamic Pressure',
+            path: './air-density',
+            preview: './images/air-density-preview.png',
+            desc: `Students learning about the physics of leaving Earth's atmosphere are treated to a fun rocket visual with dynamically changing representations of external air pressure.`,
         },
         {
             name: 'Due Diligence Infographic',
@@ -46,16 +46,15 @@
             desc: `This SVG can be edited by the student to add and place 'bubbles', creating a visual representation of their different language contexts. THe image can then be saved to revisit later!`,
         },
         {
-            name: 'Interactive World Map Infographic',
-            path: './world-map-interactive.html',
-            preview: './images/world-map-preview.png',
-            desc: `Students can zoom in on and examine a few selected countries in this interactive, adding a sense of scale and context to the 'vital stats' presented.`,
+            name: 'R0 and Immunity Threshold',
+            path: './r0-v-immunity',
+            preview: './images/r0-v-immunity-preview.png',
+            desc: `This animated infographic demonstrates the relationship between contagiousness (r0) of a disease and the required threshold for herd immunity.`,
         },
     ];
     let item = 'null';
 </script>
 
-<svelte:window on:load={() => console.log('loaded window')} />
 <h2 id="portfolio">Portfolio</h2>
 <select bind:value={item}>
     <option value="null">Choose an item:</option>
@@ -150,7 +149,8 @@
         height: 100%;
         top: 0;
         left: 0;
-        background: white;
+        background: #f9fbff;
+        background-image: linear-gradient(135deg, #f9fbff, #d6e4ff);
         z-index: 6;
     }
     .preview-thumbnail::after {

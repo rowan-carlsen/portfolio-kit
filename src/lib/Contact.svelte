@@ -36,7 +36,7 @@
     }
     div {
         background-color: var(--color-analogous2);
-        padding: 1em 2em;
+        padding: 1em 1.5em;
         color: #ced3fd;
         border-radius: 0.5em 0 0 0;
     }
