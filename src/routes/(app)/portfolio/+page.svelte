@@ -5,50 +5,50 @@
         {
             name: 'Fundr Mock App',
             path: './fundr',
-            preview: './images/fundr-preview.png',
+            preview: '/images/fundr-preview.png',
             desc: `This playful activity lets students explore the process of finding a Venture Capital investor through the analogy of a dating app.`,
         },
         {
             name: 'Nursing Simulation',
             path: './nurse-sim',
-            preview: './images/nurse-sim-preview.png',
+            preview: '/images/nurse-sim-preview.png',
             desc: `In lieue of a basic multiple choice quiz, students take on the role of a hospital nurse to determine which vital signs are abnormal for 3 patients.`,
         },
 
         {
             name: 'Collision Detection',
             path: './sample-collision.html',
-            preview: './images/collision-preview.png',
+            preview: '/images/collision-preview.png',
             desc: `From a Video Game Development course, this minimal demo shows how simple object collision in games works.`,
         },
         {
             name: 'Spaceflight Dynamic Pressure',
             path: './air-density',
-            preview: './images/air-density-preview.png',
+            preview: '/images/air-density-preview.png',
             desc: `Students learning about the physics of leaving Earth's atmosphere are treated to a fun rocket visual with dynamically changing representations of external air pressure.`,
         },
         {
             name: 'Due Diligence Infographic',
             path: './sample-diligence.html',
-            preview: './images/diligence-preview.png',
+            preview: '/images/diligence-preview.png',
             desc: `This infographic walks students through the due diligence process for corporate acquisitions and mergers.`,
         },
         {
             name: 'Tracing Images',
             path: './sample-tracing.html',
-            preview: './images/tracing-preview.png',
+            preview: '/images/tracing-preview.png',
             desc: `Students in a 2D -> 3D design course have to hone their skills at breaking down complex shapes into many simpler ones. Here they can do so with a variety of fun and challenging options.`,
         },
         {
             name: 'Editable Bubble Map',
             path: './bubble-map',
-            preview: './images/bubble-map-preview.png',
+            preview: '/images/bubble-map-preview.png',
             desc: `This SVG can be edited by the student to add and place 'bubbles', creating a visual representation of their different language contexts. THe image can then be saved to revisit later!`,
         },
         {
             name: 'R0 and Immunity Threshold',
             path: './r0-v-immunity',
-            preview: './images/r0-v-immunity-preview.png',
+            preview: '/images/r0-v-immunity-preview.png',
             desc: `This animated infographic demonstrates the relationship between contagiousness (r0) of a disease and the required threshold for herd immunity.`,
         },
     ];
