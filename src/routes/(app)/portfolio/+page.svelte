@@ -229,6 +229,7 @@
     p {
         margin: 0;
         padding: 1em;
+        padding-right: 4em;
         background: #d2d2d2;
         min-height: 3.5em;
         display: flex;

@@ -87,7 +87,7 @@
     }
     main {
         padding: 1em;
-        padding-bottom: 10em;
+        padding-bottom: 12em;
     }
     :global(body) {
         min-height: 100vh;
