@@ -73,13 +73,14 @@
             <a
                 in:fade
                 class="preview-thumbnail"
+                style="--bgImg: url('{sample.preview}')"
                 href="#sample-frame-{i}"
                 data-name={sample.name}
                 on:click={(e) => {
                     e.preventDefault();
                     item = i;
-                }}>
-                <img src={sample.preview} alt="{sample.name} preview" />
+                }}
+                ><span class="screenreader-only">{sample.name} preview</span>
             </a>
         {/each}
     </div>
@@ -137,7 +138,7 @@
         padding: 5px;
         box-shadow: 5px 5px 5px var(--color-primary);
         border: 2px solid black;
-        background: white;
+        background-color: #f9fbff;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -148,6 +149,10 @@
         transform: scale(0.75);
         z-index: 1;
     }
+    .screenreader-only {
+        opacity: 0;
+        user-select: none;
+    }
     .preview-thumbnail::before {
         content: '';
         position: absolute;
@@ -155,9 +160,14 @@
         height: 100%;
         top: 0;
         left: 0;
-        background: #f9fbff;
-        background-image: linear-gradient(135deg, #f9fbff, #d6e4ff);
-        z-index: 6;
+        background-color: #f9fbff;
+        background-image: var(--bgImg),
+            linear-gradient(135deg, #f9fbff, #d6e4ff);
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+
+        z-index: -1;
     }
     .preview-thumbnail::after {
         position: absolute;
@@ -175,7 +185,7 @@
         padding: 0.5em;
         border: 2px solid var(--color-dark);
         border-top: none;
-        z-index: 5;
+        z-index: -5;
         border-radius: 0 0 0.25em 0.25em;
     }
     .preview-thumbnail:is(:hover, :focus-visible) {
@@ -184,13 +194,7 @@
     .preview-thumbnail:is(:hover, :focus-visible)::after {
         transform: none;
     }
-    img {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        z-index: 10;
-    }
+
     #container {
         position: relative;
         overflow: hidden;
