@@ -187,6 +187,7 @@
     }
     #container {
         position: relative;
+        overflow: hidden;
     }
     #frame-holder {
         position: absolute;
