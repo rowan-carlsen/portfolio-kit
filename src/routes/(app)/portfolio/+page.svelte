@@ -55,6 +55,11 @@
     let item = 'null';
 </script>
 
+<svelte:head>
+    {#each samples as sample}
+        <link rel="preload" as="image" href={sample.preview} />
+    {/each}
+</svelte:head>
 <h2 id="portfolio">Portfolio</h2>
 <select bind:value={item}>
     <option value="null">Choose an item:</option>

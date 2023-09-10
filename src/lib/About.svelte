@@ -46,6 +46,11 @@
         margin: 0;
         font-size: 14pt;
     }
+    @media (max-width: 600px) {
+        p {
+            font-size: 12pt;
+        }
+    }
     @keyframes fly-in {
         to {
             opacity: 1;
