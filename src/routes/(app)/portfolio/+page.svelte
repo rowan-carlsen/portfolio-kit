@@ -187,6 +187,7 @@
         width: auto;
         height: auto;
         max-width: 100%;
+        min-width: 0;
         max-height: 100%;
         z-index: 10;
     }
