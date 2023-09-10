@@ -126,6 +126,7 @@
         margin: 0 auto;
         justify-items: center;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-rows: repeat(auto-fit, 250px);
         gap: 2em 10px;
         width: 100%;
         max-width: 1250px;
@@ -187,7 +188,7 @@
         width: auto;
         height: auto;
         max-width: 100%;
-        max-height: 250px;
+        max-height: 100%;
         z-index: 10;
     }
     #container {
