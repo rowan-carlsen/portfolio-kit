@@ -187,8 +187,7 @@
         width: auto;
         height: auto;
         max-width: 100%;
-        min-width: 0;
-        max-height: 100%;
+        max-height: 250px;
         z-index: 10;
     }
     #container {
