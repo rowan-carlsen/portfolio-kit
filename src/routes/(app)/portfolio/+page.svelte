@@ -53,7 +53,6 @@
         },
     ];
     let item = 'null';
-    $: console.log(new Date());
 </script>
 
 <svelte:head>
@@ -92,10 +91,7 @@
             </p>
             <!-- svelte-ignore missing-declaration -->
             <iframe
-                on:load|once={() => {
-                    console.log('resize');
-                    iFrameResize(this);
-                }}
+                on:load|once={() => iFrameResize(this)}
                 id="sample-frame"
                 src={samples[item].path}
                 title="Portfolio Item"
@@ -190,7 +186,6 @@
 
     #container {
         position: relative;
-        overflow: hidden;
     }
     #frame-holder {
         position: absolute;
