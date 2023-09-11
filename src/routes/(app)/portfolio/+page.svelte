@@ -234,7 +234,7 @@
         align-items: center;
         position: relative;
     }
-    :global(body) {
+    :global(main) {
         overflow-x: hidden;
     }
 </style>
