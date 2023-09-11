@@ -64,7 +64,7 @@
 
 <div id="container">
     <div id="preview-gallery">
-        {#each samples as sample, i}
+        {#each samples as sample, i (sample)}
             <a
                 in:fade
                 class="preview-thumbnail"
