@@ -53,6 +53,7 @@
         },
     ];
     let item = 'null';
+    $: console.log(new Date());
 </script>
 
 <svelte:head>
@@ -61,12 +62,7 @@
     {/each}
 </svelte:head>
 <h2 id="portfolio">Portfolio</h2>
-<select bind:value={item}>
-    <option value="null">Choose an item:</option>
-    {#each samples as sample, i}
-        <option value={i}>{sample.name}</option>
-    {/each}
-</select>
+
 <div id="container">
     <div id="preview-gallery">
         {#each samples as sample, i}
@@ -115,13 +111,7 @@
         margin: 1em 0;
         transition: height 0.5s;
     }
-    select {
-        margin: 0 auto;
-        display: none;
-        font-size: 1rem;
-        padding: 0.5em;
-        background-color: var(--color-analogous);
-    }
+
     #preview-gallery {
         display: grid;
         margin: 0 auto;
