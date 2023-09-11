@@ -92,7 +92,10 @@
             </p>
             <!-- svelte-ignore missing-declaration -->
             <iframe
-                on:load|once={iFrameResize(this)}
+                on:load|once={() => {
+                    console.log('resize');
+                    iFrameResize(this);
+                }}
                 id="sample-frame"
                 src={samples[item].path}
                 title="Portfolio Item"
