@@ -84,7 +84,8 @@
     {#if item !== "null"}
       <p in:fade out:fade={{ duration: 0 }}>
         {samples[item].desc}
-        <button type="button" class="btn" on:click={() => (item = "null")}>X</button>
+        <button type="button" class="btn" on:click={() => (item = "null")}
+          >X</button>
       </p>
       <!-- svelte-ignore missing-declaration -->
       <iframe
@@ -94,7 +95,7 @@
         title="Portfolio Item"
         width="100%"
         height="500"
-        frameborder="0" />
+        frameborder="0"></iframe>
     {/if}
   </div>
 </div>
@@ -123,8 +124,11 @@
     width: 100%;
     padding: 5px;
     box-shadow: 5px 5px 5px var(--color-primary);
+    background-image: var(--bgImg);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     border: 2px solid black;
-    background-color: #f9fbff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,46 +142,36 @@
   .screenreader-only {
     opacity: 0;
     user-select: none;
-  }
-  .preview-thumbnail::before {
-    content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #f9fbff;
-    background-image: var(--bgImg), linear-gradient(135deg, #f9fbff, #d6e4ff);
-    background-size: contain;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-
-    z-index: -1;
+    width: 0;
+    height: 0;
   }
+
   .preview-thumbnail::after {
     position: absolute;
     content: attr(data-name);
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    top: 100%;
+    inset: 0;
+    margin: auto;
     text-align: center;
     width: max-content;
+    height: max-content;
     color: black;
-    transform: translateY(-150%);
-    transition: transform 0.25s;
+    opacity: 0;
+    translate: 0px -100%;
+    transition:
+      opacity 0.25s,
+      translate 0.25s;
     background: var(--color-analogous);
     padding: 0.5em;
     border: 2px solid var(--color-dark);
-    border-top: none;
-    z-index: -5;
     border-radius: 0 0 0.25em 0.25em;
   }
   .preview-thumbnail:is(:hover, :focus-visible) {
     transform: none;
   }
   .preview-thumbnail:is(:hover, :focus-visible)::after {
-    transform: none;
+    opacity: 1;
+    translate: 0px 0px;
   }
 
   #container {
@@ -205,7 +199,11 @@
     height: 100%;
     margin: 0;
     border: 2px outset var(--color-dark);
-    background-image: radial-gradient(circle at center, #ffffff99 50%, transparent 50%);
+    background-image: radial-gradient(
+      circle at center,
+      #ffffff99 50%,
+      transparent 50%
+    );
     background-size: 0;
     background-position: 50% 50%;
     background-repeat: no-repeat;
